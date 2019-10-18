@@ -7,7 +7,6 @@ class ThumbnailItem extends Component {
         super(props)
 
         this.state = {
-            image: "pic_trulli.jpg",
             style: {
                 height: '40%', 
                 width: '25%',
@@ -23,8 +22,7 @@ class ThumbnailItem extends Component {
 
         return(
             <div className = "Thumbnail-Item"  style={this.state.style}>
-                <img src={this.props.image} alt="Italian Trulli" style = {{height: '100%', width: '100%'}}/>
-
+                    <img className = "Thumbnail-Image" onClick={()=> console.log("hello")} src={this.props.image} alt="Italian Trulli" style = {{height: '100%', width: '100%'}}/>
             </div>
     )
 }

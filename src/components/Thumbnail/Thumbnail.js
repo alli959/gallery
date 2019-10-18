@@ -40,9 +40,11 @@ class Thumbnail extends Component {
           <header className="Thumbnail-header">
           </header>
             <div className = "Thumbnail-main" style = {this.state.ThumbnailStyle}>
-                <ThumbnailTop />
-                <ThumbnailGrid images = {this.state.images}/>
-                {console.log(this.state.images)}
+                <React.Fragment>
+                  <ThumbnailTop />
+                  <ThumbnailGrid images = {this.state.images}/>
+                  {console.log(this.state.images)}
+                </React.Fragment>
             </div>
         </div>
       );
