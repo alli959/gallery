@@ -22,7 +22,7 @@ class Thumbnail extends Component {
 
     }
 
-    getData(){
+    async getData(){
       setTimeout(() => {
         const data = [];
         for(var i = 0; i<30; i++){
