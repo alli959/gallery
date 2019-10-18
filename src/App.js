@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Thumbnail from './components/Thumbnail/Thumbnail';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {getImages} from './actions';
+
+
+class App extends Component {
+
+  
+  componentWillMount() {
+    this.props.getImages();
+  }
+  
+  render(){
+      return (
+        <div className="App">
+          <header className="App-header">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            </meta>
+          </header>
+          <div>
+            <Thumbnail images = {this.props.images}/>
+          </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  images: state.images
+});
+
+const mapDispachToProps = dispatch => ({
+  getImages: () => dispatch(getImages())
+});
+
+export default connect(mapStateToProps, mapDispachToProps)(App);
